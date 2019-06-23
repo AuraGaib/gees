@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "569343900421",
+    "firebase_url": "https://gees-a76c2.firebaseio.com",
+    "project_id": "gees-a76c2",
+    "storage_bucket": "gees-a76c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:569343900421:android:86a3f4cf0be208ba",
+        "android_client_info": {
+          "package_name": "com.geesprod.gees"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "569343900421-b53st7gbdd64mijoir77dm2slg4unahj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWVCutlZrMx35d1Ge1VSwPTU_MWnjlotc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "569343900421-b53st7gbdd64mijoir77dm2slg4unahj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

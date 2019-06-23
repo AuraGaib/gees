@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_tambah_dagangan">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="Tambah Produk"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:id="@+id/judulTambahDagangan"
+            />
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="230dp"
+        android:id="@+id/gambarDagangan"
+        android:layout_below="@+id/judulTambahDagangan"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/wallpaper"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gambarDagangan"
+        android:id="@+id/namaProduk"
+        android:hint="Nama Produk ..."
+        android:inputType="textMultiLine"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_design_dark"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/namaProduk"
+        android:id="@+id/deskripsiProduk"
+        android:hint="Deskripsi Produk ..."
+        android:inputType="textMultiLine"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_design_dark"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deskripsiProduk"
+        android:id="@+id/hargaProduk"
+        android:hint="Harga Produk ..."
+        android:inputType="textMultiLine"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/input_design_dark"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tombolTambahProduk"
+        android:layout_below="@+id/hargaProduk"
+        android:text="Tambah Produk"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:padding="18dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:background="@drawable/button_dark"
+        />
+    </RelativeLayout>
+</ScrollView>
