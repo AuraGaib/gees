@@ -19,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -37,6 +38,7 @@ public class activity_home_user extends AppCompatActivity
 
     private DatabaseReference ProductRef;
     private RecyclerView recyclerView;
+    private long backPressedTime;
 
     RecyclerView.LayoutManager layoutManager;
 
@@ -56,8 +58,8 @@ public class activity_home_user extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(activity_home_user.this, activity_cart.class);
+                startActivity(intent);
             }
         });
 
@@ -84,7 +86,6 @@ public class activity_home_user extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
 
     }
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -129,12 +130,15 @@ public class activity_home_user extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
+       if (backPressedTime + 2000 > System.currentTimeMillis()){
+           super.onBackPressed();
+           return;
+       }
+       else {
+           Toast.makeText(activity_home_user.this, "Tekan Sekali Lagi Untuk Keluar", Toast.LENGTH_SHORT).show();
+           finish();
+       }
     }
 
     @Override
@@ -166,7 +170,8 @@ public class activity_home_user extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cart) {
-            // Handle the camera action
+            Intent intent = new Intent(activity_home_user.this, activity_cart.class);
+            startActivity(intent);
         } else if (id == R.id.nav_orders) {
 
 

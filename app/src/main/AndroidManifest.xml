@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.geesprod.gees">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -7,14 +8,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:replace="android:theme"
+    <application xmlns:tools="http://schemas.android.com/tools"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
@@ -40,7 +40,11 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".activity_detail_produk"></activity>
+        <activity android:name=".activity_detail_produk" />
+        <activity android:name=".activity_cart" />
+        <activity android:name=".activity_confirm" />
+        <activity android:name=".activity_admin_orderan_baru" />
+        <activity android:name=".activity_admin_produk"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:id="@+id/cart_nama_pembeli"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Nama Pembeli"
+            android:textColor="@android:color/white"
+            android:textSize="14dp"
+            android:layout_marginLeft="5dp"
+            />
+        <TextView
+            android:id="@+id/nomor_pembeli"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Nomor Pembeli"
+            android:textColor="@android:color/white"
+            android:textSize="14dp"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="viewEnd"
+            android:layout_marginRight="5dp"
+            />
+        <TextView
+            android:id="@+id/total_belanja"
+            android:layout_below="@+id/cart_jumlah_pesanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Harga Produk"
+            android:textColor="@android:color/white"
+            android:textSize="14dp"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            />
+        <TextView
+            android:id="@+id/alamat_pembeli"
+            android:layout_below="@+id/total_belanja"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alamat Pembeli"
+            android:textColor="@android:color/white"
+            android:textSize="14dp"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            />
+        <TextView
+            android:id="@+id/tanggalTransaksi"
+            android:layout_below="@+id/alamat_pembeli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Transaksi"
+            android:textColor="@android:color/white"
+            android:textSize="14dp"
+            android:gravity="center"
+            android:layout_marginTop="25dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tanggalTransaksi"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Tampilkan Pesanan"
+            android:id="@+id/detailOrderAdmin"
+
+            />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

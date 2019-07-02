@@ -34,12 +34,13 @@ public class activity_detail_produk extends AppCompatActivity {
     private ImageView gambarDetalProduk;
     private ElegantNumberButton numberButton;
     private TextView hargaDetailProduk, deskripsiDetailProduk, namaDetailProduk;
-    private String productID = "";
+    private String productID = "", state="Normal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_produk);
+
         gambarDetalProduk = (ImageView) findViewById(R.id.detailProduk);
         numberButton = (ElegantNumberButton) findViewById(R.id.nomorElegan);
         hargaDetailProduk = (TextView) findViewById(R.id.hargaDetail);
@@ -54,9 +55,22 @@ public class activity_detail_produk extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 cartList();
+                if (state.equals("Order Shipped") || state.equals("Order Placed")){
+                    Toast.makeText(activity_detail_produk.this, "Anda dapat berbelanja lagi saat produk sedang diproses", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                else {
+                    cartList();
+                }
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        CheckOrderState();
     }
 
     private void cartList() {
@@ -121,6 +135,32 @@ public class activity_detail_produk extends AppCompatActivity {
                     Picasso.get().load(product.getImage()).resize(100,130).into(gambarDetalProduk);
                 }
 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+    private void CheckOrderState(){
+        DatabaseReference orderRef;
+        orderRef = FirebaseDatabase.getInstance().getReference().child("Pesanan").child(Prevalent.currentOnlineUser.getPhone());
+
+        orderRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    String statusPengiriman = dataSnapshot.child("state").getValue().toString();
+
+                    if (statusPengiriman.equals("Sudah")){
+                        state = "Order Shipped";
+
+                    }
+                    else if (statusPengiriman.equals("Belum")){
+                        state = "Order Placed";
+                    }
+                }
             }
 
             @Override
