@@ -1,7 +1,9 @@
 package com.geesprod.gees;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -54,9 +56,35 @@ public class activity_admin_orderan_baru extends AppCompatActivity {
                             public void onClick(View view) {
                                 String uID = getRef(position).getKey();
 
-                                Intent intent = new Intent(activity_admin_orderan_baru.this, activity_admin_produk.class);
-                                intent.putExtra("uid", uID);
+                                Intent intent = new Intent(activity_admin_orderan_baru.this, activity_admin_user_products.class);
+                                intent.putExtra("uid",uID);
                                 startActivity(intent);
+                            }
+                        });
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                CharSequence options[] = new CharSequence[]{
+                                        "YES",
+                                        "NO"
+                                };
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(activity_admin_orderan_baru.this );
+                                builder.setTitle("Apakah Pengiriman Sudah Dilakukan ?");
+                                builder.setItems(options, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        if( i == 0){
+                                            String uID = getRef(position).getKey();
+                                            RemoverOrder(uID);
+                                        }
+                                        else{
+                                            finish();
+                                        }
+                                    }
+                                });
+                                builder.show();
                             }
                         });
 
@@ -71,6 +99,10 @@ public class activity_admin_orderan_baru extends AppCompatActivity {
                 };
         orderList.setAdapter(adapter);
         adapter.startListening();
+    }
+
+    private void RemoverOrder(String uID) {
+        orderRef.child(uID).removeValue();
     }
 
     public static class AdminOrderViewHolder extends RecyclerView.ViewHolder{

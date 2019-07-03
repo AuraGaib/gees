@@ -44,7 +44,8 @@
         <activity android:name=".activity_cart" />
         <activity android:name=".activity_confirm" />
         <activity android:name=".activity_admin_orderan_baru" />
-        <activity android:name=".activity_admin_produk"></activity>
+        <activity android:name=".activity_admin_user_products" />
+        <activity android:name=".activity_cari_produk"></activity>
     </application>
 
 </manifest>

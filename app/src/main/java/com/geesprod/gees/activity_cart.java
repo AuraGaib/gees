@@ -82,7 +82,7 @@ public class activity_cart extends AppCompatActivity {
 
                 holder.txtProduxtName.setText(model.getPname());
                 holder.txtProduxtQty.setText("Jumlah : "+model.getBanyak());
-                holder.txtProduxtPrice.setText("Harga : "+model.getPrice());
+                holder.txtProduxtPrice.setText("Harga : IDR "+model.getPrice());
 
                 int onProdukHarga = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getBanyak());
                 overTotal = overTotal  + onProdukHarga;

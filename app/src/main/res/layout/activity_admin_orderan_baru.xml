@@ -22,7 +22,6 @@
             android:textAlignment="center"
             android:layout_marginTop="10dp"
             />
-
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

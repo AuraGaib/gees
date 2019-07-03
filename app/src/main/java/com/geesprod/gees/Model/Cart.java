@@ -1,7 +1,7 @@
 package com.geesprod.gees.Model;
 
 public class Cart {
-    private String pid, pname,price, banyak, diskon;
+    private String pid, pname, price, banyak, diskon;
 
     public Cart() {
     }

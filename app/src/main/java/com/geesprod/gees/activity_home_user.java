@@ -172,9 +172,10 @@ public class activity_home_user extends AppCompatActivity
         if (id == R.id.nav_cart) {
             Intent intent = new Intent(activity_home_user.this, activity_cart.class);
             startActivity(intent);
-        } else if (id == R.id.nav_orders) {
-
-
+        }
+        else if (id == R.id.nav_cari) {
+            Intent intent = new Intent(activity_home_user.this, activity_cari_produk.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_categories) {
 

@@ -16,27 +16,28 @@ import com.geesprod.gees.ViewHolder.CartViewHolder;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class activity_admin_produk extends AppCompatActivity {
-    private RecyclerView detailPesanan;
+public class activity_admin_user_products extends AppCompatActivity {
+
+    private RecyclerView productsLists;
     RecyclerView.LayoutManager layoutManager;
-    private DatabaseReference produkref;
+    private DatabaseReference cartListRef;
     private String userID = "";
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_produk);
+        setContentView(R.layout.activity_admin_user_products);
 
         userID = getIntent().getStringExtra("uid");
-        detailPesanan = findViewById(R.id.dataOrder);
-        detailPesanan.setHasFixedSize(true);
+
+        productsLists = findViewById(R.id.products_list);
+        productsLists.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
-        detailPesanan.setLayoutManager(layoutManager);
+        productsLists.setLayoutManager(layoutManager);
 
-        produkref = FirebaseDatabase.getInstance().getReference().child("Daftar_Keranjang")
-        .child("Transaksi_Admin").child(userID).child("Product");
-
+        cartListRef = FirebaseDatabase.getInstance().getReference()
+                .child("Daftar_Keranjang").child("Transaksi_Admin").child(userID).child("Product");
     }
 
     @Override
@@ -45,7 +46,7 @@ public class activity_admin_produk extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Cart> options =
                 new FirebaseRecyclerOptions.Builder<Cart>()
-                .setQuery(produkref, Cart.class)
+                .setQuery(cartListRef, Cart.class)
                 .build();
 
         FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter =
@@ -66,7 +67,8 @@ public class activity_admin_produk extends AppCompatActivity {
                         return  holder;
                     }
                 };
-        detailPesanan.setAdapter(adapter);
+
+        productsLists.setAdapter(adapter);
         adapter.startListening();
     }
 }
